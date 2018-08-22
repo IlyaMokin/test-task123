@@ -1,0 +1,16 @@
+<div class="title-row">
+    <div class="column name">Name</div>
+    <div class="column age">Age</div>
+</div>
+<div class="user-row" *ngFor="let user of users, index as idx">
+    <div class="column name">
+        <p>{{user.name}}</p>
+    </div>
+    <div class="column age">
+        <p *ngIf="user.age" [ngClass]="{'green' : user.age>=18, 'red': user.age<18}">{{user.age}}</p>
+        <p *ngIf="!user.age">Unknown</p>
+    </div>
+    <div class="column remove">
+        <p (click)="remove(idx)">remove</p>
+    </div>
+</div>
